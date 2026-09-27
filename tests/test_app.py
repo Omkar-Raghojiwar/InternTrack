@@ -8,7 +8,7 @@ sys.path.insert(
     )
 )
 
-from app import app
+from app import app, init_db
 
 
 def test_home_page():
