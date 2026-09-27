@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <h1>Edit Internship</h1>
+
+    <p>Update your internship application.</p>
+
+    <form method="POST">
+
+        <div class="form-grid">
+
+            <div>
+                <label>Company Name *</label>
+                <input type="text"
+                       name="company"
+                       value="{{ internship.company }}"
+                       required>
+            </div>
+
+            <div>
+                <label>Job Role *</label>
+                <input type="text"
+                       name="role"
+                       value="{{ internship.role }}"
+                       required>
+            </div>
+
+            <div>
+                <label>Location</label>
+                <input type="text"
+                       name="location"
+                       value="{{ internship.location }}">
+            </div>
+
+            <div>
+                <label>Application Date</label>
+                <input type="date"
+                       name="application_date"
+                       value="{{ internship.application_date }}">
+            </div>
+
+            <div>
+                <label>Application Deadline</label>
+                <input type="date"
+                       name="deadline"
+                       value="{{ internship.deadline }}">
+            </div>
+
+            <div>
+                <label>Status *</label>
+
+                <select name="status" required>
+
+                    {% for status in
+                    ["Applied", "Shortlisted", "Interview",
+                     "Selected", "Rejected"] %}
+
+                    <option value="{{ status }}"
+                        {% if internship.status == status %}
+                        selected
+                        {% endif %}>
+                        {{ status }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+            <div>
+                <label>Interview Date</label>
+                <input type="date"
+                       name="interview_date"
+                       value="{{ internship.interview_date }}">
+            </div>
+
+            <div>
+                <label>Stipend</label>
+                <input type="text"
+                       name="stipend"
+                       value="{{ internship.stipend }}">
+            </div>
+
+            <div class="full-width">
+                <label>Application Link</label>
+
+                <input type="url"
+                       name="application_link"
+                       value="{{ internship.application_link }}">
+            </div>
+
+            <div class="full-width">
+
+                <label>Notes</label>
+
+                <textarea
+                    name="notes"
+                    rows="5">{{ internship.notes }}</textarea>
+
+            </div>
+
+        </div>
+
+        <div class="form-actions">
+
+            <a href="{{ url_for('index') }}"
+               class="secondary-button">
+                Cancel
+            </a>
+
+            <button type="submit"
+                    class="primary-button">
+                Update Internship
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

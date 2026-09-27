@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <h1>Add Internship</h1>
+
+    <p>Add a new internship application.</p>
+
+    <form method="POST">
+
+        <div class="form-grid">
+
+            <div>
+                <label>Company Name *</label>
+                <input type="text" name="company" required>
+            </div>
+
+            <div>
+                <label>Job Role *</label>
+                <input type="text" name="role" required>
+            </div>
+
+            <div>
+                <label>Location</label>
+                <input type="text" name="location">
+            </div>
+
+            <div>
+                <label>Application Date</label>
+                <input type="date" name="application_date">
+            </div>
+
+            <div>
+                <label>Application Deadline</label>
+                <input type="date" name="deadline">
+            </div>
+
+            <div>
+                <label>Status *</label>
+
+                <select name="status" required>
+
+                    <option value="Applied">Applied</option>
+                    <option value="Shortlisted">Shortlisted</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Selected">Selected</option>
+                    <option value="Rejected">Rejected</option>
+
+                </select>
+
+            </div>
+
+            <div>
+                <label>Interview Date</label>
+                <input type="date" name="interview_date">
+            </div>
+
+            <div>
+                <label>Stipend</label>
+                <input type="text" name="stipend"
+                       placeholder="e.g. ₹25,000/month">
+            </div>
+
+            <div class="full-width">
+                <label>Application Link</label>
+                <input type="url"
+                       name="application_link"
+                       placeholder="https://example.com">
+            </div>
+
+            <div class="full-width">
+
+                <label>Notes</label>
+
+                <textarea
+                    name="notes"
+                    rows="5"
+                    placeholder="Add any notes..."></textarea>
+
+            </div>
+
+        </div>
+
+        <div class="form-actions">
+
+            <a href="{{ url_for('index') }}"
+               class="secondary-button">
+                Cancel
+            </a>
+
+            <button type="submit"
+                    class="primary-button">
+                Save Internship
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}
