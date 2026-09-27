@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
+import os
 
 app = Flask(__name__)
 
-DATABASE = "database.db"
+DATABASE = os.path.join(app.root_path, "database.db")
 
 
 def get_db_connection():
